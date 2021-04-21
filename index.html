@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>calculator</title>
+    <link rel="stylesheet" href="index.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    <form class="calculator" name="calci" >
+     <div class="results">
+       <input type="text"  class="result1" name="txtresult"  readonly>
+       <input type="text" class="result" name="txt" >
+     </div>
+      <div class="cards">
+        <div class="row">
+          <span class="btn clear col col-6" onclick="clearing()">C</span>
+          <span class="btn col col-3" onclick="document.calci.txt.value = document.calci.txt.value.slice(0, -1)"><i class="bi bi-backspace"></i></span>
+          <span class="btn col col-3" onclick="document.calci.txt.value += '%'">%</span>
+        </div>
+        <div class="row">
+          <span class="btn col col-3" onclick="document.calci.txt.value += '('">(</span>
+          <span class="btn col col-3" onclick="document.calci.txt.value += ')'">)</span>
+          <span class="btn col col-3" onclick="document.calci.txt.value = (+(document.calci.txt.value)>0 ? '-'.concat(document.calci.txt.value) : document.calci.txt.value.substring(1))">+/-</span>
+          <span class="btn col col-3" onclick="document.calci.txt.value += '/'">/</span>
+        </div>
+        <div class="row">
+          <span class="btn col col-3" onclick="document.calci.txt.value += '7'">7</span>
+          <span class="btn col col-3" onclick="document.calci.txt.value += '8'">8</span>
+          <span class="btn col col-3" onclick="document.calci.txt.value += '9'">9</span>
+          <span class="btn col col-3" onclick="document.calci.txt.value += '*'">*</span>
+        </div>
+        <div class="row">
+          <span class="btn col col-3" onclick="document.calci.txt.value += '4'">4</span>
+          <span class="btn col col-3" onclick="document.calci.txt.value += '5'">5</span>
+          <span class="btn col col-3" onclick="document.calci.txt.value += '6'">6</span>
+          <span class="btn col col-3" onclick="document.calci.txt.value += '-'">-</span>
+        </div>
+        <div class="row">
+          <span class="btn col col-3" onclick="document.calci.txt.value += '1'">1</span>
+          <span class="btn col col-3" onclick="document.calci.txt.value += '2'">2</span>
+          <span class="btn col col-3" onclick="document.calci.txt.value += '3'">3</span>
+          <span class="btn col col-3" onclick="document.calci.txt.value += '+'">+</span>
+        </div>
+        <div class="row">
+          <span class="btn col col-3" onclick="document.calci.txt.value += '0'">0</span>
+          <span class="btn col col-3" onclick="document.calci.txt.value += '.'">.</span>
+          <span class="btn col col-6" onclick="equaling()">=</span>
+        </div>
+      </div>
+
+    </form>
+
+    <script type="text/javascript">
+      function clearing() {
+        document.calci.txt.value = '';
+        document.calci.txtresult.value = '';
+      }
+      function equaling() {
+        try {
+          document.calci.txt.value = eval(calci.txt.value);
+          document.calci.txtresult.value = document.calci.txt.value;
+        } catch (e) {
+          document.calci.txt.value = "Invalid";
+        }
+      }
+    </script>
+
+
+  </body>
+</html>
