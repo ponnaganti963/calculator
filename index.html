@@ -86,6 +86,10 @@
           <span class="btn col " onclick="document.calci.txt.value += 'acos('">acos</span>
           <span class="btn col" onclick="document.calci.txt.value += 'atan('">atan</span>
           <span class="btn col " onclick="document.calci.txt.value += 'acot('">acot</span>
+        </div>
+        <div class="row">
+          <span class="btn col" onclick="document.calci.txt.value += 'asec('">asec</span>
+          <span class="btn col " onclick="document.calci.txt.value += 'acosec('">acosec</span>
           <span class="btn col " onclick="document.calci.txt.value += '%'">%</span>
         </div>
         <div class="row">
@@ -127,7 +131,7 @@
           .replace('√','Math.sq')) * 1000000) / 1000000 ;
           document.calci.txtresult.value = document.calci.txt.value;
         } catch (e) {
-          
+
           document.calci.txt.value = "Invalid";
         }
       }
