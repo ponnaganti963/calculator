@@ -14,59 +14,130 @@
     <form class="calculator" name="calci" >
      <div class="results">
        <input type="text"  class="result1" name="txtresult"  readonly>
-       <input type="text" class="result" name="txt" >
+       <input type="text" class="result" name="txt">
      </div>
       <div class="cards">
         <div class="row">
-          <span class="btn clear col col-6" onclick="clearing()">C</span>
+
+          <span class="btn clear col col-6" onclick="clearing()">AC</span>
           <span class="btn col col-3" onclick="document.calci.txt.value = document.calci.txt.value.slice(0, -1)"><i class="bi bi-backspace"></i></span>
-          <span class="btn col col-3" onclick="document.calci.txt.value += '%'">%</span>
+          <span class="btn col col-3" onclick="scientific()"><i class="bi bi-arrow-repeat"></i></span>
+        </div>
+      <div class="front">
+
+        <div class="row">
+
+          <span class="btn col " onclick="document.calci.txt.value += '7'">7</span>
+          <span class="btn col " onclick="document.calci.txt.value += '8'">8</span>
+          <span class="btn col " onclick="document.calci.txt.value += '9'">9</span>
+          <span class="btn col " onclick="document.calci.txt.value += '*'">*</span>
+        </div>
+        <div class="row">
+
+          <span class="btn col " onclick="document.calci.txt.value += '4'">4</span>
+          <span class="btn col" onclick="document.calci.txt.value += '5'">5</span>
+          <span class="btn col " onclick="document.calci.txt.value += '6'">6</span>
+          <span class="btn col " onclick="document.calci.txt.value += '-'">-</span>
+        </div>
+        <div class="row">
+
+          <span class="btn col " onclick="document.calci.txt.value += '1'">1</span>
+          <span class="btn col" onclick="document.calci.txt.value += '2'">2</span>
+          <span class="btn col" onclick="document.calci.txt.value += '3'">3</span>
+          <span class="btn col " onclick="document.calci.txt.value += '+'">+</span>
+        </div>
+        <div class="row">
+          <span class="btn col" onclick="document.calci.txt.value += '0'">0</span>
+          <span class="btn col" onclick="document.calci.txt.value += '.'">.</span>
+          <span class="btn col " onclick="document.calci.txt.value = (+(document.calci.txt.value)>0 ? '-'.concat(document.calci.txt.value) : document.calci.txt.value.substring(1))">+/-</span>
+          <span class="btn col " onclick="document.calci.txt.value += '/'">/</span>
         </div>
         <div class="row">
           <span class="btn col col-3" onclick="document.calci.txt.value += '('">(</span>
           <span class="btn col col-3" onclick="document.calci.txt.value += ')'">)</span>
-          <span class="btn col col-3" onclick="document.calci.txt.value = (+(document.calci.txt.value)>0 ? '-'.concat(document.calci.txt.value) : document.calci.txt.value.substring(1))">+/-</span>
-          <span class="btn col col-3" onclick="document.calci.txt.value += '/'">/</span>
-        </div>
-        <div class="row">
-          <span class="btn col col-3" onclick="document.calci.txt.value += '7'">7</span>
-          <span class="btn col col-3" onclick="document.calci.txt.value += '8'">8</span>
-          <span class="btn col col-3" onclick="document.calci.txt.value += '9'">9</span>
-          <span class="btn col col-3" onclick="document.calci.txt.value += '*'">*</span>
-        </div>
-        <div class="row">
-          <span class="btn col col-3" onclick="document.calci.txt.value += '4'">4</span>
-          <span class="btn col col-3" onclick="document.calci.txt.value += '5'">5</span>
-          <span class="btn col col-3" onclick="document.calci.txt.value += '6'">6</span>
-          <span class="btn col col-3" onclick="document.calci.txt.value += '-'">-</span>
-        </div>
-        <div class="row">
-          <span class="btn col col-3" onclick="document.calci.txt.value += '1'">1</span>
-          <span class="btn col col-3" onclick="document.calci.txt.value += '2'">2</span>
-          <span class="btn col col-3" onclick="document.calci.txt.value += '3'">3</span>
-          <span class="btn col col-3" onclick="document.calci.txt.value += '+'">+</span>
-        </div>
-        <div class="row">
-          <span class="btn col col-3" onclick="document.calci.txt.value += '0'">0</span>
-          <span class="btn col col-3" onclick="document.calci.txt.value += '.'">.</span>
           <span class="btn col col-6" onclick="equaling()">=</span>
         </div>
+
       </div>
+
+      <div class="back" id="backId">
+        <div class="row">
+
+          <span class="btn col " onclick="document.calci.txt.value += 'sin('">sin</span>
+          <span class="btn col" onclick="document.calci.txt.value += 'cos('">cos</span>
+          <span class="btn col" onclick="document.calci.txt.value += 'tan('">tan</span>
+          <span class="btn col" onclick="document.calci.txt.value += 'cot('">cot</span>
+        </div>
+        <div class="row">
+          <span class="btn col" onclick="document.calci.txt.value += 'cosec('">cosec</span>
+          <span class="btn col " onclick="document.calci.txt.value += 'sec('">sec</span>
+          <span class="btn col " onclick="document.calci.txt.value += '√('">√x</span>
+          <span class="btn col " onclick="document.calci.txt.value += '**2'">x2</span>
+
+        </div>
+        <div class="row">
+          <span class="btn col" onclick="document.calci.txt.value += 'log2('">log2(x)</span>
+          <span class="btn col " onclick="document.calci.txt.value += 'log10('">log10(x)</span>
+          <span class="btn col " onclick="document.calci.txt.value += 'log('">ln</span>
+          <span class="btn col" onclick="document.calci.txt.value += '3.14'">π</span>
+        </div>
+        <div class="row">
+          <span class="btn col" onclick="document.calci.txt.value += 'asin('">asin</span>
+          <span class="btn col " onclick="document.calci.txt.value += 'acos('">acos</span>
+          <span class="btn col" onclick="document.calci.txt.value += 'atan('">atan</span>
+          <span class="btn col " onclick="document.calci.txt.value += 'acot('">acot</span>
+          <span class="btn col " onclick="document.calci.txt.value += '%'">%</span>
+        </div>
+        <div class="row">
+          <span class="btn col col-3" onclick="document.calci.txt.value += '('">(</span>
+          <span class="btn col col-3" onclick="document.calci.txt.value += ')'">)</span>
+          <span class="btn col col-6" onclick="equaling()">=</span>
+
+        </div>
+      </div>
+
+
+
+
+        </div>
+
 
     </form>
 
     <script type="text/javascript">
+
+
+
       function clearing() {
+
         document.calci.txt.value = '';
         document.calci.txtresult.value = '';
       }
       function equaling() {
         try {
-          document.calci.txt.value = eval(calci.txt.value);
+          document.calci.txt.value = Math.round(eval(calci.txt.value.replace('sin','Math.sin')
+          .replace('asin','Math.asin')
+          .replace('cos','Math.cos').replace('acos','Math.acos')
+          .replace('tan','Math.tan').replace('atan','Math.atan')
+          .replace('cot','Math.cot').replace('acot','Math.acot')
+          .replace('cosec','Math.cosec').replace('acosec','Math.acosec')
+          .replace('sec','Math.sec').replace('asec','Math.asec')
+          .replace('log2','Math.log2').replace('log10','Math.log10')
+          .replace('log','Math.log')
+          .replace('√','Math.sq')) * 1000000) / 1000000 ;
           document.calci.txtresult.value = document.calci.txt.value;
         } catch (e) {
+          
           document.calci.txt.value = "Invalid";
         }
+      }
+
+      function sqaure(form){
+        alert(form);
+      }
+      function scientific() {
+        var p = document.querySelector('#backId').classList.toggle('cardsChange');
+
       }
     </script>
 
