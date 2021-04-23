@@ -132,10 +132,10 @@
           .replace('sec','Math.sec').replace('asec','Math.asec')
           .replace('log2','Math.log2').replace('log10','Math.log10')
           .replace('log','Math.log')
-          .replace('√','Math.sq')) * 1000000) / 1000000 ;
+          .replace('√','Math.sqrt')) * 1000000) / 1000000 ;
           document.calci.txtresult.value = document.calci.txt.value;
         } catch (e) {
-
+          alert(e);
           document.calci.txt.value = "Invalid";
         }
       }
