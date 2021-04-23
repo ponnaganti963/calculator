@@ -123,21 +123,39 @@
       }
       function equaling() {
         try {
-          document.calci.txt.value = Math.round(eval(calci.txt.value.replace('sin','Math.sin')
-          .replace('asin','Math.asin')
-          .replace('cos','Math.cos').replace('acos','Math.acos')
-          .replace('tan','Math.tan').replace('atan','Math.atan')
-          .replace('cot','Math.cot').replace('acot','Math.acot')
-          .replace('cosec','Math.cosec').replace('acosec','Math.acosec')
-          .replace('sec','Math.sec').replace('asec','Math.asec')
-          .replace('log2','Math.log2').replace('log10','Math.log10')
-          .replace('log','Math.log')
-          .replace('√','Math.sqrt')) * 1000000) / 1000000 ;
+          var replaceing = {
+            sin: "Math.sin",
+            cos: "Math.cos",
+            tan: "Math.tan",
+            sec: "1/Math.cos",
+            cosec: "1/Math.sin",
+            cot: "1/Math.tan",
+            log10: "Math.log10",
+            log: "Math.log",
+            log2: "Math.log2",
+            asin: "Math.asin",
+            acos: "Math.acos",
+            atan: "Math.atan",
+            acot: "Math.acot",
+            acosec: "1/Math.asin",
+            asec: "1/Math.acos",
+
+
+          }
+
+          document.calci.txt.value = Math.round(eval(calci.txt.value.replace(/sin|asin|log10|cos|acos|tan|atan|log2|log|sec|asec|cosec|acosec|cot|acot/gi,function(x) {
+            return replaceing[x];
+          })  .replace('√','Math.sqrt')) * 1000000) / 1000000 ;
+
+
+
           document.calci.txtresult.value = document.calci.txt.value;
         } catch (e) {
           alert(e);
           document.calci.txt.value = "Invalid";
         }
+      
+
       }
 
       function sqaure(form){
