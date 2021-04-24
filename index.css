@@ -6,7 +6,7 @@
 }
 
 html{
-  --bg: #0e0e0e;
+  --bg: #222831;
   --bg1: #1d202a;
   --color: #fff;
   --hover_color: red;
@@ -19,6 +19,7 @@ body[data-theme="light"]{
 .btn[data-theme="light"]{
   transition: .4s all ease-in;
   --bg1: #d1d5da;
+  --hover_color: #e7e6e1;
   --color: #000;
 }
 body{
@@ -42,21 +43,34 @@ form{
   position: absolute;
   width: 330px;
   backface-visibility: hidden;
-  transition: transition 1s linear;
+  transition: transform 1s linear;
 }
 
 .front {
-  transform: rotateY(0deg);
+transform: rotateY(0deg);
 }
 
 .back{
-  transform: rotateY(180deg);
+  transform:   rotateX(180deg) ;
 }
 
 
 .cardsChange {
+  animation: changing 1s ease-in-out;
   transform: rotateY(0deg);
+
 }
+@keyframes changing {
+  0%{
+    transform:  scale(0.5);
+  }
+  100%{
+    transform: scale(1);
+  }
+
+}
+
+
 
 .results{
   display: flex;
@@ -152,6 +166,6 @@ input[type="checkbox"]:checked:before{
 
 
 .btn:hover{
-  background-color: var(--hover_color);
+  background-color: var(--hover_color) !important;
    color: white;
 }
