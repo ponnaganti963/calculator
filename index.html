@@ -145,8 +145,16 @@
 
 
           }
+          var p = document.calci.txt.value.split(/(?<=[+|-|(])/);
+          var x = "";
+          for(let i=0; i <p.length;i++){
+            if(p[i][0] == 0){
+              p[i] = p[i].substring(1);
+            }
+            x += p[i];
+          }
 
-          document.calci.txt.value = Math.round(eval(calci.txt.value.replace(/sin|asin|log10|cos|acos|tan|atan|log2|log|sec|asec|cosec|acosec|cot|acot/gi,function(x) {
+          document.calci.txt.value = Math.round(eval(x.replace(/sin|asin|log10|cos|acos|tan|atan|log2|log|sec|asec|cosec|acosec|cot|acot/gi,function(x) {
             return replaceing[x];
           })  .replace('√','Math.sqrt')) * 1000000) / 1000000 ;
 
