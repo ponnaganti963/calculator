@@ -72,30 +72,24 @@
           <span class="btn col"  style="background : var(--bg1)" onclick="document.calci.txt.value += 'cot('">cot</span>
         </div>
         <div class="row">
-          <span class="btn col" style="background : var(--bg1)" onclick="document.calci.txt.value += 'cosec('">cosec</span>
           <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value += 'sec('">sec</span>
           <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value += '√('">√x</span>
-          <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value += '**2'">x2</span>
+          <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value += '^2'">x2</span>
+          <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value += '%'">%</span>
 
         </div>
         <div class="row">
           <span class="btn col" style="background : var(--bg1)" onclick="document.calci.txt.value += 'asin('">asin</span>
           <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value += 'acos('">acos</span>
           <span class="btn col" style="background : var(--bg1)" onclick="document.calci.txt.value += 'atan('">atan</span>
-          <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value += 'acot('">acot</span>
-        </div>
-        <div class="row">
           <span class="btn col" style="background : var(--bg1)" onclick="document.calci.txt.value += 'asec('">asec</span>
-          <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value += 'acosec('">acosec</span>
-          <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value += '%'">%</span>
-          <span class="btn col" style="background : var(--bg1)" onclick="document.calci.txt.value += '3.14'">π</span>
-
         </div>
+
         <div class="row">
           <span class="btn  col" style="background : var(--bg1)" onclick="document.calci.txt.value += 'log2('">log2(x)</span>
           <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value += 'log10('">log10(x)</span>
           <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value += 'log('">ln</span>
-
+          <span class="btn col" style="background : var(--bg1)" onclick="document.calci.txt.value += '3.14'">π</span>
         </div>
 
 
@@ -131,7 +125,6 @@
             cos: "Math.cos",
             tan: "Math.tan",
             sec: "1/Math.cos",
-            cosec: "1/Math.sin",
             cot: "1/Math.tan",
             log10: "Math.log10",
             log: "Math.log",
@@ -139,8 +132,6 @@
             asin: "Math.asin",
             acos: "Math.acos",
             atan: "Math.atan",
-            acot: "Math.acot",
-            acosec: "1/Math.asin",
             asec: "1/Math.acos",
 
 
@@ -153,10 +144,10 @@
             }
             x += p[i];
           }
-
-          document.calci.txt.value = Math.round(eval(x.replace(/sin|asin|log10|cos|acos|tan|atan|log2|log|sec|asec|cosec|acosec|cot|acot/gi,function(x) {
+          document.calci.txt.value = Math.round(eval(x.replace(/sin|asin|log10|cos|acos|tan|atan|log2|log|sec|asec|cosec|acosec|cot/gi,function(x) {
             return replaceing[x];
-          })  .replace('√','Math.sqrt')) * 1000000) / 1000000 ;
+          })  .replace('√','Math.sqrt')
+           .replace('^','**')) * 1000000) / 1000000 ;
 
 
 
