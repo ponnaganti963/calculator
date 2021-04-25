@@ -33,27 +33,27 @@
           <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value += '7'">7</span>
           <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value += '8'">8</span>
           <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value += '9'">9</span>
-          <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value += '*'">*</span>
+          <span class="btn col " style="background : var(--bg1)" onclick="['+','-','*','%','/'].includes(document.calci.txt.value[document.calci.txt.value.length-1]) ? document.calci.txt.value+='' : document.calci.txt.value += '*'">*</span>
         </div>
         <div class="row">
 
           <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value += '4'">4</span>
           <span class="btn col" style="background : var(--bg1)" onclick="document.calci.txt.value += '5'">5</span>
           <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value += '6'">6</span>
-          <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value += '-'">-</span>
+          <span class="btn col " style="background : var(--bg1)" onclick="['+','-','*','%','/'].includes(document.calci.txt.value[document.calci.txt.value.length-1]) ? document.calci.txt.value+='' : document.calci.txt.value += '-'">-</span>
         </div>
         <div class="row">
 
           <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value += '1'">1</span>
           <span class="btn col" style="background : var(--bg1)" onclick="document.calci.txt.value += '2'">2</span>
           <span class="btn col" style="background : var(--bg1)" onclick="document.calci.txt.value += '3'">3</span>
-          <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value += '+'">+</span>
+          <span class="btn col " style="background : var(--bg1)" onclick="['+','-','*','%','/'].includes(document.calci.txt.value[document.calci.txt.value.length-1]) ? document.calci.txt.value+='' : document.calci.txt.value += '+'">+</span>
         </div>
         <div class="row">
           <span class="btn col" style="background : var(--bg1)" onclick="document.calci.txt.value += '0'">0</span>
           <span class="btn col" style="background : var(--bg1)" onclick="document.calci.txt.value += '.'">.</span>
           <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value = (+(document.calci.txt.value)>0 ? '-'.concat(document.calci.txt.value) : document.calci.txt.value.substring(1))">+/-</span>
-          <span class="btn col " style="background : var(--bg1)" onclick="document.calci.txt.value += '/'">/</span>
+          <span class="btn col " style="background : var(--bg1)" onclick="['+','-','*','%','/'].includes(document.calci.txt.value[document.calci.txt.value.length-1]) ? document.calci.txt.value+='' : document.calci.txt.value += '/'">/</span>
         </div>
         <div class="row">
           <span class="btn col col-3" style="background : var(--bg1)" onclick="document.calci.txt.value += '('">(</span>
@@ -139,10 +139,14 @@
           var p = document.calci.txt.value.split(/(?<=[+|-|(])/);
           var x = "";
           for(let i=0; i <p.length;i++){
-            if(p[i][0] == 0){
-              p[i] = p[i].substring(1);
-            }
-            x += p[i];
+            var q = p[i].split(/(?<=[0])/);
+            for(let j=0;j< q.length;j++){
+    if(q[j] == '0'){
+        q[j]=""; }
+    else{
+        break;}}
+        var y = q.join('');
+            x += y;
           }
           document.calci.txt.value = Math.round(eval(x.replace(/sin|asin|log10|cos|acos|tan|atan|log2|log|sec|asec|cosec|acosec|cot/gi,function(x) {
             return replaceing[x];
@@ -175,20 +179,19 @@
           document.body.setAttribute("data-theme","light");
           for(let i=0; i<frontmode.length ; i++)
           {
-            console.log(frontmode[i]);
+
             frontmode[i].setAttribute('data-theme',"light");
           }
         }else{
           document.body.setAttribute("data-theme","");
           for(let i=0; i<frontmode.length ; i++)
           {
-            console.log(frontmode[i]);
+
             frontmode[i].setAttribute('data-theme',"");
           }
         }
 
 
-        // backmode.classList.toggle('lightMode');
       })
 
     </script>
